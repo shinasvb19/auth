@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../store/AuthContext";
 import "./css/Signin.css";
-import { computeHeadingLevel } from "@testing-library/react";
 
 const Signin = () => {
   // const [user, setUser] = useState();
@@ -16,23 +15,14 @@ const Signin = () => {
     e.preventDefault();
     const user = { email, password };
     const response = await axios.post("http://localhost:5000/signin", user);
-    setUser(response.data);
-
     localStorage.setItem("user", response.data.token);
     setIsLoggedin(true);
-    // console.log(response.data);
   };
   const history = useHistory();
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
-
-    if (loggedInUser) {
-      const foundUser = loggedInUser;
-      setUser(foundUser);
-      console.log(isLoggedin);
-      if (isLoggedin === true) {
-        history.replace("/");
-      }
+    if (isLoggedin === true) {
+      history.push("/");
     }
   }, [isLoggedin]);
 

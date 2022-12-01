@@ -7,20 +7,23 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../store/AuthContext";
 
 function ColorSchemesExample() {
-  const { user, setUser, isLoggedin, setIsLoggedin } = useContext(AuthContext);
+  const {
+    user,
+    setUser,
+    isLoggedin,
+    setIsLoggedin,
+    userDetails,
+    setUserDetails,
+  } = useContext(AuthContext);
 
   const history = useHistory();
+
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedin(false);
-    console.log("clicked");
+    history.push("/signin");
   };
 
-  useEffect(() => {
-    if (isLoggedin === false) {
-      history.push("/signin");
-    }
-  }, [handleLogout]);
   return (
     <>
       <Navbar
@@ -30,7 +33,7 @@ function ColorSchemesExample() {
           <Navbar.Brand href='#home'>Navbar</Navbar.Brand>
           <Nav className='me-auto'>
             <Nav.Link href='#home'>Home</Nav.Link>
-            <Nav.Link href='#features'>Features</Nav.Link>
+            <Nav.Link href='#features'>{userDetails}</Nav.Link>
             <Button
               onClick={handleLogout}
               className=' btn-danger'>

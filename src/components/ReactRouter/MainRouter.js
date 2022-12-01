@@ -4,6 +4,7 @@ import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import Admin from "../pages/Admin";
+import Profile from "../pages/Profile";
 const MainRouter = () => {
   return (
     <div>
@@ -18,7 +19,9 @@ const MainRouter = () => {
       <Route path='/signin'>
         <Signin />
       </Route>
-
+      <Route path='/profile'>
+        <Profile />
+      </Route>
       <Route path='/admin'>
         <Admin />
       </Route>
