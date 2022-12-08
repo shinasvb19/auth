@@ -15,7 +15,9 @@ const Dashboard = () => {
       history.replace("/signin");
     }
   }, []);
-
+  const profileSubmit = () => {
+    history.push("/profile");
+  };
   return (
     <>
       <div>
@@ -23,7 +25,11 @@ const Dashboard = () => {
         <Container>
           <div className='col-md-12 row'>
             <h2 className='col-md-8'>Welcome user</h2>
-            <Button className='col-md-2 btn-success'>view profile</Button>
+            <Button
+              className='col-md-2 btn-success'
+              onClick={profileSubmit}>
+              view profile
+            </Button>
           </div>
         </Container>
       </div>

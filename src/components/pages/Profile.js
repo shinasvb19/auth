@@ -61,8 +61,8 @@ const Profile = () => {
       <Container>
         <Col className='d-flex justify-content-center'>
           <Image
-            className='w-50 h-50'
-            roundedCircle
+            className='w-25 h-25'
+            rounded
             src={userDetails.image}
           />
         </Col>

@@ -5,6 +5,9 @@ import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import Admin from "../pages/Admin";
 import Profile from "../pages/Profile";
+import AdminSignin from "../pages/AdminSignin";
+import View from "../pages/View";
+import Edit from "../pages/Edit";
 const MainRouter = () => {
   return (
     <div>
@@ -22,8 +25,19 @@ const MainRouter = () => {
       <Route path='/profile'>
         <Profile />
       </Route>
-      <Route path='/admin'>
+      <Route
+        exact
+        path='/admin'>
         <Admin />
+      </Route>
+      <Route path='/admin/signin'>
+        <AdminSignin />
+      </Route>
+      <Route path='/admin/view/:id'>
+        <View />
+      </Route>
+      <Route path='/admin/edit/:id'>
+        <Edit />
       </Route>
     </div>
   );
